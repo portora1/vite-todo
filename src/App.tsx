@@ -26,7 +26,7 @@ export const App = () => {
         handleSubmit();
       }}
         >
-        <input type="text" value="text" onChange={(e) => handleChange(e)} />
+        <input type="text" value={text} onChange={(e) => handleChange(e)} />
         <input type="submit" value="追加" onSubmit={handleSubmit} />
       </form>
     </div>
