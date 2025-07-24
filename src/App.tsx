@@ -8,17 +8,26 @@ type Todo = {
 export const App = () => {
   const [text, setText] = useState('');
   const [todos, setTodos] = useState<Todo[]>([]);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setText(e.target.value);
+  };
+  const handleSubmit = () => {
+    if (!text) return; 
+    const newTodo: Todo = { value: text };
+  
+  setTodos([...todos, newTodo]);
+  setText('');
+  };
 
   return (
     <div>
-      <form onSubmit={(e) => e.preventDefault()}>
-        <input type="text" value="" onChange={(e) => e.preventDefault}/>
-        <input
-        type="text"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        />
-        <input type="submit" />'
+      <form onSubmit={(e) => {
+        e.preventDefault()
+        handleSubmit();
+      }}
+        >
+        <input type="text" value="text" onChange={(e) => handleChange(e)} />
+        <input type="submit" value="追加" onSubmit={handleSubmit} />
       </form>
     </div>
   );
