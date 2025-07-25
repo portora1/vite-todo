@@ -1,4 +1,3 @@
-import './App.css'
 import { useState } from 'react';
 
 type Todo = {
@@ -21,8 +20,8 @@ export const App = () => {
       checked: false,
     };
   
-  setTodos((todos) => [newTodo, ...todos]);
-  setText('');
+    setTodos((todos) => [newTodo, ...todos]);
+    setText('');
   };
   const handleEdit = (id: number, value: string) => {
     setTodos((todos) => {
@@ -39,6 +38,17 @@ export const App = () => {
       return newTodos;
   });
 };
+    const handleCheck = (id: number, checked: boolean) => {
+    setTodos((todos) => {
+      const newTodos = todos.map((todo) => {
+        if (todo.id === id) {
+          return { ...todo, checked };
+        }
+        return todo;
+      });
+      return newTodos;
+    });
+  };
 
   return (
     <div>
@@ -57,10 +67,11 @@ export const App = () => {
             <input
               type="checkbox"
               checked={todo.checked}
-              onChange={() => console.log('checked')}
+              onChange={() => handleCheck(todo.id, !todo.checked)}
               />
             <input
               type="text"
+              disabled={todo.checked}
               value={todo.value}
               onChange={(e) => handleEdit(todo.id, e.target.value)}
               />
