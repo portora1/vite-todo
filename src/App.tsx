@@ -4,6 +4,7 @@ import { useState } from 'react';
 type Todo = {
   value: string;
   readonly id: number;
+  checked: boolean;
 };
 
 export const App = () => {
@@ -17,6 +18,7 @@ export const App = () => {
     const newTodo: Todo = {
       value: text,
       id: new Date().getTime(), 
+      checked: false,
     };
   
   setTodos((todos) => [newTodo, ...todos]);
@@ -52,7 +54,12 @@ export const App = () => {
         {todos.map((todo) => {
           return (
           <li key={todo.id}>
-            <input 
+            <input
+              type="checkbox"
+              checked={todo.checked}
+              onChange={() => console.log('checked')}
+              />
+            <input
               type="text"
               value={todo.value}
               onChange={(e) => handleEdit(todo.id, e.target.value)}
