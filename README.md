@@ -1,3 +1,14 @@
+[Type Script練習の為に次サイト様のTodoリスト作成](https://zenn.dev/sprout2000/articles/40328708afaeb9)
+意識した点　①作業内容をタスク毎にコミット②作成時間の速さ③エラー内容の理解
+①はサイト様が章ごとに分けてあるのでそのタイミングでコミット。
+②作成時間の速さ　Tabキーである程度の予測をしてくれているので、活用しながら作成。
+③エラー内容の理解　タイプミスが多く、なぜエラーが出ているか　不要な物を残していないかなど
+また、作業途中で(e)preventDefoultなど、仮置きしているものを判断できるようにする。
+
+次回作成時の目標
+・コメント機能をもっと活用したい。
+・可読性の向上　サイト様通りに行を分けずに、１行に収めた部分などがあり、AIに読ませたときにサイト様と比べた時に可読性が悪いと言われたため、どの部分を行分けしたら可読性が良かったのかなど、理解できるようになりたい。
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
